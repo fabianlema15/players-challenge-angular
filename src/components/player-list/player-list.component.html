@@ -1,0 +1,26 @@
+<table class="table table-bordered table-striped table-hover table-sm">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Jersey Number</th>
+            <th scope="col">Team</th>
+            <th scope="col">Position</th>
+            <th scope="col" style="width:1px;white-space:nowrap;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of players">
+            <td>{{player.name}}</td>
+            <td>{{player.jersey_number}}</td>
+            <td>{{player.team}}</td>
+            <td>{{player.position}}</td>
+            <td>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal" (click)="selectPlayer(player)">Edit</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" (click)="selectPlayer(player)">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <ng-content></ng-content>
+    </tbody>
+</table>
